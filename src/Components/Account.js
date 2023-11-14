@@ -24,7 +24,7 @@ const Account = () => {
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
-        if (isLoggedIn) {
+        if (isLoggedIn && user) {
             // Fetch orders from Firestore for the current user
             const fetchOrders = async () => {
                 const ordersCollection = collection(db, 'orders');
