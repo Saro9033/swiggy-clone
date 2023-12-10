@@ -8,7 +8,7 @@ import { useUserAuth } from '../Context/UserAuthContext';
 
 const Header = () => {
     const navigate = useNavigate()
-    const { place,placed, selectedItems, viewSignIn, setViewSignIn, isOffcanvasVisible, setIsOffcanvasVisible } = useContext(MyContext)
+    const { place, placed, selectedItems, viewSignIn, setViewSignIn, isOffcanvasVisible, setIsOffcanvasVisible } = useContext(MyContext)
     const styles = {
         proximaNova: {
             fontFamily: 'Proxima Nova, sans-serif',
@@ -28,7 +28,9 @@ const Header = () => {
         }
     };
 
-    console.log(place, placed);
+    console.log(place);
+    console.log(placed);
+
     return (<>
         <div className="offcanvas offcanvas-end " style={{ width: '35%', fontFamily: 'Poppins', display: isOffcanvasVisible ? null : "none" }} id="demo">
             <div className="offcanvas-header mt-2 d-flex flex-column align-items-start justify-content-between">
@@ -49,7 +51,7 @@ const Header = () => {
                 <Link to='/'> <img className="m-0 p-0 navbar-brand" src={Logo} alt='' width='30px' /> </Link>
 
                 <div className='px-3 Ocolor align-items-center d-flex' style={{ fontSize: '14px' }} >
-                    <p className='px-2 m-0'>  { place}</p>
+                    <p className='px-2 m-0'>  {placed}</p>
                     <i class="fa-solid   m-0 fa-location-dot"></i>
 
                 </div>
@@ -86,14 +88,13 @@ const Header = () => {
         </nav>
 
         <div className='px-3 text-secondary shadow py-2 justify-content-between d-flex align-items-center d-sm-block d-md-none' style={{ backgroundColor: 'white', position: 'sticky', top: '0', zIndex: '101', fontSize: '14px' }}>
-           <div className='d-flex align-items-center'> <p className='px-2 m-0'>{ placed}</p>
-            <i className="fa-solid m-0 fa-location-dot"></i> </div> 
-
+        <img className="m-0 p-0 navbar-brand" src={Logo} alt='' width='22px' /> 
+           
             <Link to='/Offers' className='border-0 bg-none text-secondary mx-4' style={styles.proximaNova}>
-                            <i className="fa-solid fa-percent"></i>&nbsp;
-                            Offers
-                        </Link>
-            
+                <i className="fa-solid fa-percent"></i>&nbsp;
+                Offers
+            </Link>
+
         </div>
 
 

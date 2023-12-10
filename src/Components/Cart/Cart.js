@@ -16,7 +16,6 @@ const Cart = () => {
     const navigate = useNavigate()
 
     console.log(selectedItems);
-console.log(total);
 
     const handleOrderFood = () => {
         if (isLoggedIn) {
@@ -56,6 +55,10 @@ console.log(total);
         setSelectedItem([]);
     };
 
+    const deleteAll=()=>{
+        setSelectedItem([])
+    }
+
     return (
         <div >
             {selectedItems.length === 0 ?
@@ -71,9 +74,12 @@ console.log(total);
 
                 <div style={{ background: '#E9ECEE', height: '100%' }} className='w-100 '>
                     <div className='container pt-5 pb-5'>
+
                         <div className="row m-0 ">
 
                             <div className="col-lg-7 my-2 p-0 px-2 col-sm-12  shadow" style={{ background: 'white', margin: window.innerWidth > 550 ? "0 15px " : null, }}>
+                           <div className='w-100 d-flex align-items-center justify-content-end '> <button className='align-end btn btn-outline-primary mt-3' style={{fontSize:'12px'}} onClick={deleteAll}>Delete all</button>
+                           </div> 
                                 <div className='px-3'>
                                     {selectedItems && selectedItems.length > 0 &&
                                         selectedItems.map((item, index) => {

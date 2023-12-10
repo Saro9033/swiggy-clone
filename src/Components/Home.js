@@ -22,7 +22,7 @@ const Home = ({ place, setPlace , setPlaced}) => {
         e.preventDefault()
         setPlaced(place)
         }
-
+      console.log(place);  
         const handleSubmit = () =>{
             toast.success("please enter your location!!")
         }

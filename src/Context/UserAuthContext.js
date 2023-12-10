@@ -16,7 +16,6 @@ export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-
  function logIn(email, password) {
     setIsLoggedIn(true);
   toast.success("Login successful!");

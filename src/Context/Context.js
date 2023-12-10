@@ -489,7 +489,6 @@ const MyProvider = ({ children }) => {
 
             if (selectedCategory) {
                 const selectedListItem = selectedCategory.listItems[parseInt(selectedIndices[2])];
-
                 setSelectedItem([...selectedItems, { selectedShop, selectedListItem, quantity }]);
             }
         }
@@ -500,8 +499,22 @@ const MyProvider = ({ children }) => {
     const [placed, setPlaced] = useState(null)
     const [place, setPlace] = useState("")
 
+    const updateQuantity = (title, increase) => {      
+        setSelectedItem((prevSelectedItems) => {
+          // Create a copy of the array and update the quantity of the matching item
+          const updatedItems = prevSelectedItems.map((item) => {
+            if (item.selectedListItem.Ltitle === title) {
+              return { ...item, quantity: increase ? item.quantity + 1 : item.quantity - 1 };
+            }
+            return item;
+          });
+                 return [...updatedItems];
+        });
+      };
+      
+
     return (
-        <MyContext.Provider value={{place, setPlace, placed,setPlaced,isOffcanvasVisible,setIsOffcanvasVisible, viewSignIn,setViewSignIn,  total, setTotal, selectedItems, setSelectedItem, hanldeFin, items }}>
+        <MyContext.Provider value={{updateQuantity, place, setPlace, placed,setPlaced,isOffcanvasVisible,setIsOffcanvasVisible, viewSignIn,setViewSignIn,  total, setTotal, selectedItems, setSelectedItem, hanldeFin, items }}>
             {children}
         </MyContext.Provider>
     );

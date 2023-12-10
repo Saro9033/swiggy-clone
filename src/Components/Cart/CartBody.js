@@ -3,21 +3,20 @@ import { MyContext } from '../../Context/Context';
 
 const CartBody = ({ price, name , removeFromCart, id,q, notInd}) => {
   const [quantity, setQuantity] = useState(q);
-  const { setTotal,selectedItems, setSelectedItem, total } = useContext(MyContext);
+  const { setTotal,selectedItems, setSelectedItem } = useContext(MyContext);
   
   useEffect(() => {
     if (quantity === 0) {
       removeFromCart(id);
     } else {
       const updatedItems = [...selectedItems];
-      updatedItems[id] = { ...updatedItems[id], quantity };
+      updatedItems[id] = { ...updatedItems[id], quantity};
       setSelectedItem(updatedItems);
 
       const updatedTotal = updatedItems.reduce((total, item) => {
         return total + item.selectedListItem.Lprice * item.quantity;
       }, 0);
       setTotal(updatedTotal);
-      console.log('Updated Total:', updatedTotal);
     }
   }, [quantity , selectedItems.length]);
 
@@ -34,7 +33,6 @@ const CartBody = ({ price, name , removeFromCart, id,q, notInd}) => {
       removeFromCart(id);
     }
   };
-
 
   return (
     <div className='my-3 border-bottom pb-3'>

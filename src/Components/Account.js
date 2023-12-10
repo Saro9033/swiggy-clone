@@ -48,6 +48,7 @@ const Account = () => {
             fetchOrders();
         }
     }, [isLoggedIn, user?.email]);
+    console.log(orderedItems) 
 
     return (
         <div className=' w-100 container' >
@@ -71,7 +72,7 @@ const Account = () => {
                                 <div className='container mt-3' style={{ fontSize: '15px' }}>
                                     {orderedItems.map((order, index) => (
                                         <div className='mb-3' key={index}>
-                                            <div className='d-flex justify-content-around align-items-center w-100'>
+                                            <div className='d-flex justify-content-start align-items-center w-100'>
                                                 <p className='text-secondary m-0' style={{ fontSize: window.innerWidth < 550 ? '8px' : '12px' }}>     {order.time && (
                                                     new Intl.DateTimeFormat('en-US', {
                                                         year: 'numeric',
@@ -84,7 +85,6 @@ const Account = () => {
                                                     }).format(order.time.toDate())
                                                 )}</p>
 
-                                                <h6 className='text-center m-0 py-2 ' style={{ color: 'black', fontSize: window.innerWidth < 550 ? '11px' : '14px' }}>Shop Name: <span style={{textDecoration: 'underline '}}>{order.items[0].shop} </span> </h6>
                                             </div>
 
                                             <div className='table-responsive'>
@@ -97,14 +97,17 @@ const Account = () => {
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-
+                                                      
                                                         {order.items.map((item, itemIndex) => (
                                                             <tr key={itemIndex}>
                                                                 <td style={{fontSize: window.innerWidth < 550 ? '10px' : '14px'}}>
                                                                      <img className='rounded-circle mb-1' width="40px" height="40px" src={item.img} alt="" /> 
                                                                      {window.innerWidth < 600 ? <br/>  : '\u00A0\u00A0'} 
 
-                                                                    {item.title.length > 20 && window.innerWidth < 600 ? `${item.title.substring(0, 19)}...` : item.title}</td>
+                                                                    {item.title.length > 20 && window.innerWidth < 600 ? `${item.title.substring(0, 19)}...` : item.title}
+                                                                    <p style={{fontSize:'8px'}} className='text-secondary'>{item.shop}</p>
+                                                                    </td>
+
                                                                 <td>{item.quantitiy}</td>
                                                                 <td>{item.price}</td>
                                                             </tr>
