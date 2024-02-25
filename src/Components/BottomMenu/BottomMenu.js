@@ -1,7 +1,7 @@
 import React from 'react'
 import BottomMenuItems from './BottomMenuItems'
-import outline from '../../assets/outline.png'
-import origin from '../../assets/original.png'
+import logoOut from '../../assets/logoOutline.png'
+import origin from '../../assets/logo.png'
 import SearchOU from '../../assets/loupe.png'
 import SearchOL from '../../assets/loupe1.png'
 import FoodOU from '../../assets/dish.png'
@@ -16,7 +16,7 @@ const BottomMenu = () => {
         <div className='d-sm-block d-md-none'>
             <div className=' bottomMenu'>
                 <ul id='menu' className='p-0 px-1 m-0'>
-                    <BottomMenuItems link={'/'} icon={outline} iconActive={origin} title="SWIGGY" />
+                    <BottomMenuItems link={'/'} icon={logoOut} iconActive={origin} title="FOODCALL" />
                     <BottomMenuItems link={'/offers'} icon={FoodOU} iconActive={FoodOL} title="FOOD" />
                     <BottomMenuItems link={'/cart'} icon={CartOU} iconActive={CartOL} title="CART" cart={true}/>
                     <BottomMenuItems link={'/search'} icon={SearchOU} iconActive={SearchOL} title="SEARCH" />

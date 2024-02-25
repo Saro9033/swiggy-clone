@@ -53,7 +53,7 @@ const Layout = () => {
         basisGrotesqueProBold: {
             fontFamily: 'Basis Grotesque Pro, sans-serif',
             fontWeight: 700,
-            fontSize: window.innerWidth < 590 && '14px'
+            fontSize: window.innerWidth < 590 && '16px'
 
         },
     };

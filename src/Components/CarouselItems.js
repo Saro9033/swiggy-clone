@@ -5,11 +5,11 @@ const CarouselItems = ({ img, small , verysmall}) => {
 
   function widthSizes(){
     if(small)
-      return '13%'
+      return '15%'
     else if (verysmall) {
         return '11%'
     } else {
-      return '40%'
+      return '44%'
     }
   }
   return (

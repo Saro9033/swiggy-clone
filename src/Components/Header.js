@@ -48,14 +48,14 @@ const Header = () => {
 
         <nav className="navbar d-none d-lg-block  shadow navbar-expand-lg px-1 navbar-light w-100" style={{ backgroundColor: 'white', position: 'sticky', top: '0', zIndex: '101' }} >
             <div className=" container-fluid">
-                <Link to='/'> <img className="m-0 p-0 navbar-brand" src={Logo} alt='' width='30px' /> </Link>
+                <Link to='/'> <img className="m-0 p-0 navbar-brand" src={Logo} alt='' width='70px' /> </Link>
 
-                <div className='px-3 Ocolor align-items-center d-flex' style={{ fontSize: '14px' }} >
+            {/*     <div className='px-3 Ocolor align-items-center d-flex' style={{ fontSize: '14px' }} >
                     <p className='px-2 m-0'>  {placed}</p>
                     <i class="fa-solid   m-0 fa-location-dot"></i>
 
                 </div>
-
+ */}
 
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <div style={styles.proximaNova} className='align-items-center justify-content-end d-flex w-100'>

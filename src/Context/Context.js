@@ -501,7 +501,6 @@ const MyProvider = ({ children }) => {
 
     const updateQuantity = (title, increase) => {      
         setSelectedItem((prevSelectedItems) => {
-          // Create a copy of the array and update the quantity of the matching item
           const updatedItems = prevSelectedItems.map((item) => {
             if (item.selectedListItem.Ltitle === title) {
               return { ...item, quantity: increase ? item.quantity + 1 : item.quantity - 1 };

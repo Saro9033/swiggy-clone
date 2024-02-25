@@ -14,12 +14,13 @@ function App() {
       <Toaster position="top-center" reverseOrder={false}/>
       <MyProvider>
         <UserAuthContextProvider>
-          {!placed ?
-            <Home setPlace={setPlace} place={place} setPlaced={setPlaced} />
-            :
-            <Homes />
+        {/*   {placed ? */}
+        <Homes />
+           {/* 
+             : 
+           <Home setPlace={setPlace} place={place} setPlaced={setPlaced} />
 
-          }
+          }  */}
         </UserAuthContextProvider>
       </MyProvider>
     </div>

@@ -1,11 +1,13 @@
 import React from 'react'
+import Logo from '../assets/logo.png'
 
 const Footer = () => {
   return (
     <div className='d-none d-lg-block'>
         <div className='row  p-5 m-0 mt-5' style={{background:'black', fontFamily:'Basis Grotesque Pro, sans-serif'}}>
             <div className="col-3">
-                <h5 className='text-light'>Swiggy</h5>
+            <img className="m-0 p-0 navbar-brand" src={Logo} alt='' width='70px' /> 
+                <h5 className='text-light'>FoodCall</h5>
                 <p className='text-secondary' style={{fontSize:'13px'}}>© 2023 Bundl Technologies Pvt. Ltd</p>
             </div>
 
