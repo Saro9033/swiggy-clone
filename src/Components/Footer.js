@@ -16,9 +16,9 @@ const Footer = () => {
                 <p className='text-secondary m-0' style={{fontSize:'13px'}}>About</p>
                 <p className='text-secondary m-0 mt-2' style={{fontSize:'13px'}}>Careers</p>
                 <p className='text-secondary m-0 mt-2' style={{fontSize:'13px'}}>Team</p>
-                <p className='text-secondary m-0 mt-2' style={{fontSize:'13px'}}>Swiggy one</p>
-                <p className='text-secondary m-0 mt-2' style={{fontSize:'13px'}}>Swiggy instamart</p>
-                <p className='text-secondary m-0 mt-2' style={{fontSize:'13px'}}>Swiggy Genie</p>
+                <p className='text-secondary m-0 mt-2' style={{fontSize:'13px'}}>FoodCall one</p>
+                <p className='text-secondary m-0 mt-2' style={{fontSize:'13px'}}>FoodCall instamart</p>
+                <p className='text-secondary m-0 mt-2' style={{fontSize:'13px'}}>FoodCall Genie</p>
             </div>
 
             
