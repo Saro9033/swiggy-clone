@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import Logo from '../assets/logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { MyContext } from '../Context/Context';
@@ -50,13 +50,6 @@ const Header = () => {
             <div className=" container-fluid">
                 <Link to='/'> <img className="m-0 p-0 navbar-brand" src={Logo} alt='' width='70px' /> </Link>
 
-            {/*     <div className='px-3 Ocolor align-items-center d-flex' style={{ fontSize: '14px' }} >
-                    <p className='px-2 m-0'>  {placed}</p>
-                    <i class="fa-solid   m-0 fa-location-dot"></i>
-
-                </div>
- */}
-
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <div style={styles.proximaNova} className='align-items-center justify-content-end d-flex w-100'>
                         <Link to='/' className='border-0 bg-none Ocolor mx-4' style={styles.proximaNova}>
@@ -88,8 +81,8 @@ const Header = () => {
         </nav>
 
         <div className='px-3 text-secondary shadow py-2 justify-content-between d-flex align-items-center d-sm-block d-md-none' style={{ backgroundColor: 'white', position: 'sticky', top: '0', zIndex: '101', fontSize: '14px' }}>
-        <img className="m-0 p-0 navbar-brand" src={Logo} alt='' width='22px' /> 
-           
+            <img className="m-0 p-0 navbar-brand" src={Logo} alt='' width='22px' />
+
             <Link to='/Offers' className='border-0 bg-none text-secondary mx-4' style={styles.proximaNova}>
                 <i className="fa-solid fa-percent"></i>&nbsp;
                 Offers

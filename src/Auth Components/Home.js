@@ -6,18 +6,17 @@ import { useLocation } from 'react-router-dom'
 import Router from '../Routers/router'
 
 const Home = () => {
-    const location = useLocation();
-
+  const location = useLocation();
   return (
     <div>
-        
-      <>  <Header />
+      <>
+        <Header />
         <Router />
         {location.pathname === '/' && <Footer />}
         {location.pathname === '/Offers' && <Footer />}
-        <BottomMenu /> </> 
+        <BottomMenu />
+      </>
     </div>
   )
 }
-
 export default Home

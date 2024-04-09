@@ -9,10 +9,9 @@ const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const { logIn } = useUserAuth();
-  const {setIsOffcanvasVisible} = useContext(MyContext)
-   //email and passowrd
-   const [email, setEmail] = useState("")
-   const [password, setPassword] = useState("")
+  const { setIsOffcanvasVisible } = useContext(MyContext)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -22,7 +21,7 @@ const Login = () => {
       toast.success("successfully login");
       navigate("/account");
       setIsOffcanvasVisible(false)
-      
+
     } catch (err) {
       setError(err.message);
     }
@@ -31,7 +30,6 @@ const Login = () => {
   return (
     <div>
       {error && <Alert variant="danger">{error}</Alert>}
-
       <form onSubmit={handleLogin}>
         <div className="form-floating ">
           <input onChange={(e) => setEmail(e.target.value)} value={email} required type="text" className="form-control" id="email" placeholder="Enter email" name="email" />
@@ -44,8 +42,7 @@ const Login = () => {
         <button
           style={{ background: '#FC8019', color: 'white' }}
           className="mt-3 btn w-100 text-center"
-          type="submit"
-        >
+          type="submit" >
           Continue
         </button>
         <p style={{ fontSize: '9px', marginTop: '4px' }}>

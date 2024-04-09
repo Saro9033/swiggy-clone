@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { MyContext } from '../Context/Context';
 
 const ListedItems = ({ src, title, price, desc, id, BigID, smallId }) => {
-  const { hanldeFin , selectedItems, updateQuantity} = useContext(MyContext);
+  const { hanldeFin, selectedItems, updateQuantity } = useContext(MyContext);
   const [quantity, setQuantity] = useState(1);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -33,7 +33,8 @@ const ListedItems = ({ src, title, price, desc, id, BigID, smallId }) => {
         <div className='d-flex justify-content-between flex-column'>
           <div>
             <h6 className='m-0' style={{ fontSize: window.innerWidth < 600 ? '12px' : '15px' }}>
-              {(title.length > 20 && window.innerWidth < 600) ? title.substring(0, 25) + '...' : title}</h6>
+              {(title.length > 20 && window.innerWidth < 600) ? title.substring(0, 25) + '...' : title}
+            </h6>
             <p style={{ fontSize: window.innerWidth < 600 ? '12px' : '15px' }}> &#8377; {price}</p>
           </div>
           <p style={{ fontSize: window.innerWidth < 600 ? '9px' : '11px', paddingRight: '10px' }} className=' text-secondary'>
@@ -41,17 +42,21 @@ const ListedItems = ({ src, title, price, desc, id, BigID, smallId }) => {
         </div>
         <div className='d-flex flex-column align-items-end justify-content-center'>
           {src ? <img src={src} className='rounded-3' style={{ width: window.innerWidth < 600 ? '80px' : '110px', height: window.innerWidth < 600 ? '60px' : '90px' }} alt="" /> : ""}
-
           {isClicked ? <div className='w-100 border d-flex align-items-center justify-content-between'>
-            <button className='btn' onClick={decreaseQuantity}><i style={{ fontSize: 'xx-small' }} className="fa-solid fa-minus"></i> </button>
+            <button className='btn' onClick={decreaseQuantity}>
+              <i style={{ fontSize: 'xx-small' }} className="fa-solid fa-minus"></i>
+            </button>
             <span style={{ fontSize: 'small' }}>{quantity}</span>
-            <button className='btn' onClick={increaseQuantity}><i style={{ fontSize: 'xx-small' }} className="fa-solid fa-plus"></i> </button>
-          </div> : <button
-            onClick={() => handleSelect(id)}
-            className={`w-100 btn  p-1`}
-            style={{ fontSize: '12px', border: '1px solid black' }}
-          > Add </button>}
-
+            <button className='btn' onClick={increaseQuantity}>
+              <i style={{ fontSize: 'xx-small' }} className="fa-solid fa-plus"></i>
+            </button>
+          </div>
+            :
+            <button
+              onClick={() => handleSelect(id)}
+              className={`w-100 btn  p-1`}
+              style={{ fontSize: '12px', border: '1px solid black' }}> Add </button>
+          }
         </div>
       </div>
     </li>

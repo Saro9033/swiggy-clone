@@ -16,12 +16,12 @@ export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
- function logIn(email, password) {
+  function logIn(email, password) {
     setIsLoggedIn(true);
-  toast.success("Login successful!");
-   return signInWithEmailAndPassword(auth, email, password);
-   }
-  
+    toast.success("Login successful!");
+    return signInWithEmailAndPassword(auth, email, password);
+  }
+
   function signUp(email, password) {
     setIsLoggedIn(true);
     toast.success("Sign-up successful!");
@@ -34,9 +34,8 @@ export function UserAuthContextProvider({ children }) {
     return signOut(auth);
   }
 
-
-  function setUpRecaptcha(number){
-    const recaptchaVerifier  = new RecaptchaVerifier(auth,'recaptcha-container', {size: 'invisible'});
+  function setUpRecaptcha(number) {
+    const recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', { size: 'invisible' });
     recaptchaVerifier.render();
     return signInWithPhoneNumber(auth, number, recaptchaVerifier)
   }
@@ -52,9 +51,9 @@ export function UserAuthContextProvider({ children }) {
 
   const [number, setNumber] = useState("")
 
-  
+
   return (
-    <userAuthContext.Provider value={{number, setNumber, isLoggedIn, user, logIn, signUp, logOut, setUpRecaptcha }}>
+    <userAuthContext.Provider value={{ number, setNumber, isLoggedIn, user, logIn, signUp, logOut, setUpRecaptcha }}>
       {children}
     </userAuthContext.Provider>
   );

@@ -6,7 +6,7 @@ import { MyContext } from '../Context/Context';
 
 const Restaurants = () => {
   const { id } = useParams();
-  const {items} = useContext(MyContext)
+  const { items } = useContext(MyContext)
 
   const selected = items.filter(item => item.id === parseInt(id));
 
@@ -56,11 +56,11 @@ const Restaurants = () => {
               </div>
             ))}
         </div>
-      </div> }
+      </div>}
 
       <div className='my-5'>
         {selected[0].items.map((item, index) => {
-          return <ListItems key={index} id={index} item={item} BigID={id} items={items}/>
+          return <ListItems key={index} id={index} item={item} BigID={id} items={items} />
         })}
       </div>
 

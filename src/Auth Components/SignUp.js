@@ -6,14 +6,12 @@ import { useUserAuth } from '../Context/UserAuthContext'
 import { MyContext } from '../Context/Context'
 
 const SignUp = () => {
-    const { setUpRecaptcha, signUp, number,setNumber } = useUserAuth()
-    const { setViewSignIn} = useContext(MyContext)
+    const { setUpRecaptcha, signUp, number, setNumber } = useUserAuth()
+    const { setViewSignIn } = useContext(MyContext)
     const [error, setError] = useState("")
     const [otp, setOtp] = useState("")
     const [flag, setFlag] = useState(false)
     const [confirmObj, setConfirmObj] = useState(null)
-
-    //email and passowrd
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -22,9 +20,9 @@ const SignUp = () => {
         setError("")
         if (number === "" || number === undefined)
             return setError("please enter a valid Phone Number")
-            if (email === "" || password === "") {
-                return setError("Please enter both email and password");
-              }
+        if (email === "" || password === "") {
+            return setError("Please enter both email and password");
+        }
         try {
             const response = await setUpRecaptcha(number);
             console.log(response)
@@ -59,10 +57,8 @@ const SignUp = () => {
     return (
         <div>
             {error && <Alert varient="danger">{error}</Alert>}
-
             <form onSubmit={getOtp} style={{ display: !flag ? "block" : "none" }}>
                 <PhoneInput required defaultCountry='IN' value={number} onChange={setNumber} type="tel" className="form-control" id="Phone Number" placeholder="Phone Number For OTP" name="Phone Number" />
-
                 <div className="form-floating mt-2">
                     <input onChange={(e) => setEmail(e.target.value)} value={email} required type="text" className="form-control" id="email" placeholder="Enter email" name="email" />
                     <label htmlFor="email">Email</label>
@@ -78,7 +74,6 @@ const SignUp = () => {
                 <p style={{ fontSize: '9px', marginTop: '4px' }}>By creating an account, I accept the Terms & Conditions & Privacy Policy</p>
             </form>
 
-
             <form onSubmit={verifyOtp} style={{ display: flag ? "block" : "none" }}>
                 <div className="form-floating ">
                     <input required value={otp} onChange={(e) => setOtp(e.target.value)} type="text" className="form-control" id="OTP" placeholder="OTP" name="OTP" />
@@ -89,7 +84,6 @@ const SignUp = () => {
                 </button>
                 <p style={{ fontSize: '9px', marginTop: '4px' }}>By creating an account, I accept the Terms & Conditions & Privacy Policy</p>
             </form>
-
         </div>
     )
 }

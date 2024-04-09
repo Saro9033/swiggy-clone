@@ -38,7 +38,6 @@ const Layout = () => {
                 )
             );
         }
-
         return filteredItemsList;
     };
 
@@ -182,24 +181,25 @@ const Layout = () => {
             <div className='mt-2 mb-5'>
                 <h5>Your Restaurants</h5>
                 <div className='d-flex align-items-center '>
-                <button
-                    style={{
-                        fontSize: window.innerWidth<600 ? 'xx-small': 'small' }} 
+                    <button
+                        style={{
+                            fontSize: window.innerWidth < 600 ? 'xx-small' : 'small'
+                        }}
                         className={` rounded-1  p-1 px-2 mx-4 ${selectedRating === 4 ? 'active-filter' : ''} `}
-                    onClick={() => handleRatingFilter(4)}>4.0+ ratings</button>
-                <button
-                    className={` rounded-1  p-1 px-2 mx-4 ${selectedPriceRange && selectedPriceRange.min === 300 && selectedPriceRange.max === 600 ? 'active-filter' : ''}`}
-                    style={{ fontSize: window.innerWidth<600 ? 'xx-small': 'small' }}
-                    onClick={() => handlePriceFilter(300, 600)}>
-                    Rs. 300 - Rs.600
-                </button>
+                        onClick={() => handleRatingFilter(4)}>4.0+ ratings</button>
+                    <button
+                        className={` rounded-1  p-1 px-2 mx-4 ${selectedPriceRange && selectedPriceRange.min === 300 && selectedPriceRange.max === 600 ? 'active-filter' : ''}`}
+                        style={{ fontSize: window.innerWidth < 600 ? 'xx-small' : 'small' }}
+                        onClick={() => handlePriceFilter(300, 600)}>
+                        Rs. 300 - Rs.600
+                    </button>
 
-                <button
-                    className={` p-1 px-2 rounded-1  mx-4 ${selectedPriceRange && selectedPriceRange.min === 0 && selectedPriceRange.max === 300 ? 'active-filter' : ''}`}
-                    style={{ fontSize: window.innerWidth<600 ? 'xx-small': 'small'  }}
-                    onClick={() => handlePriceFilter(0, 300)}>
-                    below 300
-                </button>
+                    <button
+                        className={` p-1 px-2 rounded-1  mx-4 ${selectedPriceRange && selectedPriceRange.min === 0 && selectedPriceRange.max === 300 ? 'active-filter' : ''}`}
+                        style={{ fontSize: window.innerWidth < 600 ? 'xx-small' : 'small' }}
+                        onClick={() => handlePriceFilter(0, 300)}>
+                        below 300
+                    </button>
                 </div>
 
                 <div className='d-flex flex-wrap align-items-center justify-content-center'>

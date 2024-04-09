@@ -18,7 +18,7 @@ const BottomMenu = () => {
                 <ul id='menu' className='p-0 px-1 m-0'>
                     <BottomMenuItems link={'/'} icon={logoOut} iconActive={origin} title="FOODCALL" />
                     <BottomMenuItems link={'/offers'} icon={FoodOU} iconActive={FoodOL} title="FOOD" />
-                    <BottomMenuItems link={'/cart'} icon={CartOU} iconActive={CartOL} title="CART" cart={true}/>
+                    <BottomMenuItems link={'/cart'} icon={CartOU} iconActive={CartOL} title="CART" cart={true} />
                     <BottomMenuItems link={'/search'} icon={SearchOU} iconActive={SearchOL} title="SEARCH" />
                     <BottomMenuItems link={'/account'} icon={UserOU} iconActive={UserOL} title="ACCOUNT" />
                 </ul>

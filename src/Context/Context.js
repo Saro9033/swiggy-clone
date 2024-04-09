@@ -468,18 +468,7 @@ const MyProvider = ({ children }) => {
         }
     ]
 
-    // const calculateGrandTotal = () => {
-    //     return selectedItems.reduce((total, item) => {
-    //         const itemTotal = item.selectedListItem.Lprice;
-    //         return total + itemTotal;
-    //     }, 0);
-    // };
-
     const [total, setTotal] = useState(0)
-    // useEffect(() => {
-    //     const initialTotal = calculateGrandTotal();
-    //     setTotal(initialTotal);
-    // }, [selectedItems]);
 
     function hanldeFin(BigID, smallId, id, quantity) {
         const selectedIndices = [BigID, smallId, id]
@@ -499,21 +488,20 @@ const MyProvider = ({ children }) => {
     const [placed, setPlaced] = useState(null)
     const [place, setPlace] = useState("")
 
-    const updateQuantity = (title, increase) => {      
+    const updateQuantity = (title, increase) => {
         setSelectedItem((prevSelectedItems) => {
-          const updatedItems = prevSelectedItems.map((item) => {
-            if (item.selectedListItem.Ltitle === title) {
-              return { ...item, quantity: increase ? item.quantity + 1 : item.quantity - 1 };
-            }
-            return item;
-          });
-                 return [...updatedItems];
+            const updatedItems = prevSelectedItems.map((item) => {
+                if (item.selectedListItem.Ltitle === title) {
+                    return { ...item, quantity: increase ? item.quantity + 1 : item.quantity - 1 };
+                }
+                return item;
+            });
+            return [...updatedItems];
         });
-      };
-      
+    };
 
     return (
-        <MyContext.Provider value={{updateQuantity, place, setPlace, placed,setPlaced,isOffcanvasVisible,setIsOffcanvasVisible, viewSignIn,setViewSignIn,  total, setTotal, selectedItems, setSelectedItem, hanldeFin, items }}>
+        <MyContext.Provider value={{ updateQuantity, place, setPlace, placed, setPlaced, isOffcanvasVisible, setIsOffcanvasVisible, viewSignIn, setViewSignIn, total, setTotal, selectedItems, setSelectedItem, hanldeFin, items }}>
             {children}
         </MyContext.Provider>
     );

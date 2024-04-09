@@ -48,7 +48,16 @@ const Account = () => {
             fetchOrders();
         }
     }, [isLoggedIn, user?.email]);
-    console.log(orderedItems) 
+
+    console.log(orderedItems)
+
+    const changeDate = orderedItems.map(item => ({
+        ...item,
+        time: item.time.toDate().toISOString()
+    }));
+
+    const Ordering = changeDate.slice().sort((a, b) => b.time.localeCompare(a.time));
+    console.log(Ordering);
 
     return (
         <div className=' w-100 container' >
@@ -70,20 +79,25 @@ const Account = () => {
 
                             {orderedItems.length > 0 ? (
                                 <div className='container mt-3' style={{ fontSize: '15px' }}>
-                                    {orderedItems.map((order, index) => (
+                                    {Ordering.map((order, index) => {
+                                        const date = new Date(order.time); 
+
+                                        const formattedDate = new Intl.DateTimeFormat('en-US', {
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric',
+                                            hour: 'numeric',
+                                            minute: 'numeric',
+                                            second: 'numeric',
+                                            hour12: true,
+                                        }).format(date);
+
+                                        return( 
                                         <div className='mb-3' key={index}>
                                             <div className='d-flex justify-content-start align-items-center w-100'>
-                                                <p className='text-secondary m-0' style={{ fontSize: window.innerWidth < 550 ? '8px' : '12px' }}>     {order.time && (
-                                                    new Intl.DateTimeFormat('en-US', {
-                                                        year: 'numeric',
-                                                        month: 'long',
-                                                        day: 'numeric',
-                                                        hour: 'numeric',
-                                                        minute: 'numeric',
-                                                        second: 'numeric',
-                                                        hour12: true,
-                                                    }).format(order.time.toDate())
-                                                )}</p>
+                                                <p className='text-secondary m-0' style={{ fontSize: window.innerWidth < 550 ? '8px' : '12px' }}>
+                                               {formattedDate}
+                                                </p>
 
                                             </div>
 
@@ -97,16 +111,16 @@ const Account = () => {
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                      
+
                                                         {order.items.map((item, itemIndex) => (
                                                             <tr key={itemIndex}>
-                                                                <td style={{fontSize: window.innerWidth < 550 ? '10px' : '14px'}}>
-                                                                     <img className='rounded-circle mb-1' width="40px" height="40px" src={item.img} alt="" /> 
-                                                                     {window.innerWidth < 600 ? <br/>  : '\u00A0\u00A0'} 
+                                                                <td style={{ fontSize: window.innerWidth < 550 ? '10px' : '14px' }}>
+                                                                    <img className='rounded-circle mb-1' width="40px" height="40px" src={item.img} alt="" />
+                                                                    {window.innerWidth < 600 ? <br /> : '\u00A0\u00A0'}
 
                                                                     {item.title.length > 20 && window.innerWidth < 600 ? `${item.title.substring(0, 19)}...` : item.title}
-                                                                    <p style={{fontSize:'8px'}} className='text-secondary'>{item.shop}</p>
-                                                                    </td>
+                                                                    <p style={{ fontSize: '8px' }} className='text-secondary'>{item.shop}</p>
+                                                                </td>
 
                                                                 <td>{item.quantitiy}</td>
                                                                 <td>{item.price}</td>
@@ -120,9 +134,8 @@ const Account = () => {
                                                     </tbody>
                                                 </table>
                                             </div>
-                                        </div>
-
-                                    ))}
+                                        </div>)
+                                    })}
                                 </div>
                             ) : (
                                 <p className='pt-2 m-0 text-dark' style={{ fontSize: '14px' }}>No orders placed yet.</p>

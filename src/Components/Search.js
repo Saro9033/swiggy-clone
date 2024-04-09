@@ -8,24 +8,24 @@ const Search = () => {
     const { items } = useContext(MyContext)
     const [search, setSearch] = useState()
 
-   
+
     const filteredItems = items
-    .filter((restaurant) => 
-        (restaurant.title && restaurant.title?.toLowerCase().includes(search?.toLowerCase())) ||
-        (restaurant.loc && restaurant.loc?.toLowerCase().includes(search?.toLowerCase())) ||
-        (restaurant.items && restaurant.items.some((category) =>
-            category.listItems && category.listItems.some((item) =>
-                (item.Ltitle && item.Ltitle?.toLowerCase().includes(search?.toLowerCase())) ||
-                (item.Ldesc && item.Ldesc?.toLowerCase().includes(search?.toLowerCase()))
-            )
-        ))
-    );
+        .filter((restaurant) =>
+            (restaurant.title && restaurant.title?.toLowerCase().includes(search?.toLowerCase())) ||
+            (restaurant.loc && restaurant.loc?.toLowerCase().includes(search?.toLowerCase())) ||
+            (restaurant.items && restaurant.items.some((category) =>
+                category.listItems && category.listItems.some((item) =>
+                    (item.Ltitle && item.Ltitle?.toLowerCase().includes(search?.toLowerCase())) ||
+                    (item.Ldesc && item.Ldesc?.toLowerCase().includes(search?.toLowerCase()))
+                )
+            ))
+        );
     const noResultsMessage = "No items found matching your search.";
 
- const handleSubmit = (e) =>{
-    e.preventDefault()
-    setSearch("")
- }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setSearch("")
+    }
     const carousel2 = [
         "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029846/PC_Creative%20refresh/3D_bau/banners_new/Idli.png",
         "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029850/PC_Creative%20refresh/3D_bau/banners_new/Dosa.png",
@@ -44,7 +44,7 @@ const Search = () => {
             <form onSubmit={handleSubmit} className={`mt-4 ${window.innerWidth > 500 && 'px-5'}`}>
                 <div className="input-group">
                     <input value={search} onChange={(e) => setSearch(e.target.value)} className=' form-control' type="text" placeholder='Search for restaurants food' />
-                   <button style={{border:'none'}} type='submit'>  <span className="input-group-text"><i className="fa-solid fa-magnifying-glass"></i> </span></button>
+                    <button style={{ border: 'none' }} type='submit'>  <span className="input-group-text"><i className="fa-solid fa-magnifying-glass"></i> </span></button>
                 </div>
             </form>
 

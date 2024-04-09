@@ -1,26 +1,22 @@
 import './App.css';
-import Home from './Components/Home';
-import MyProvider, { MyContext } from '../src/Context/Context';
-import { useContext, useState } from 'react';
-import Homes from '../src/Auth Components/Home'
+import MyProvider from '../src/Context/Context';
+import Home from '../src/Auth Components/Home'
 import { UserAuthContextProvider } from '../src/Context/UserAuthContext'
 import { Toaster } from 'react-hot-toast';
 
+//UserAuthContextProvider = It's a context and it check the user is logged in or not using firebase
+//MyProvider = It's context and it have all shops details & items datas.
+//Home - It's a home page of our application.
+//Toaster - It's used to notify the informaion to user.
+
 function App() {
-  const{placed,setPlaced,place, setPlace} = useContext(MyContext)
-  
+
   return (
     <div className="App">
-      <Toaster position="top-center" reverseOrder={false}/>
+      <Toaster position="top-center" reverseOrder={false} />
       <MyProvider>
         <UserAuthContextProvider>
-        {/*   {placed ? */}
-        <Homes />
-           {/* 
-             : 
-           <Home setPlace={setPlace} place={place} setPlaced={setPlaced} />
-
-          }  */}
+          <Home />
         </UserAuthContextProvider>
       </MyProvider>
     </div>

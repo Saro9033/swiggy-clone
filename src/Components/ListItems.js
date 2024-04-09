@@ -19,7 +19,7 @@ const ListItems = ({ item, id, BigID, items }) => {
                     style={{ transition: 'max-height 0.5s ease' }}>
                     <div className="card-body px-0 py-1">
                         {item.listItems.map((l, i) => (
-                            <ListedItems key={i} id={i} smallId={id} src={l.Limg} title={l.Ltitle} price={l.Lprice} desc={l.Ldesc} BigID={BigID} items={items}/>
+                            <ListedItems key={i} id={i} smallId={id} src={l.Limg} title={l.Ltitle} price={l.Lprice} desc={l.Ldesc} BigID={BigID} items={items} />
                         ))
                         }
                     </div>
